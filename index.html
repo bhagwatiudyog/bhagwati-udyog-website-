@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagwati Udyog | Industrial Iron and Steel Manufacturing</title>
+    <style>
+        :root {
+            --color-black: #1A1A1A;
+            --color-grey: #4A4A4A;
+            --color-light-grey: #f4f4f4;
+            --color-orange: #FF5722;
+            --color-yellow: #FFC107;
+            --color-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--color-black);
+            background-color: var(--color-light-grey);
+            line-height: 1.6;
+        }
+
+        /* Sticky Contact Strip */
+        .sticky-contact {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-quote {
+            background-color: var(--color-orange);
+            color: var(--color-white);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.2s;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .btn-quote:hover {
+            background-color: #e64a19;
+        }
+
+        /* Main Navigation */
+        header {
+            margin-top: 40px; /* Offset for sticky strip */
+            background-color: var(--color-white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-black);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--color-orange);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--color-orange);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* Value Proposition */
+        .value-prop {
+            background-color: var(--color-white);
+            padding: 4rem 2rem;
+        }
+        
+        .value-prop h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .prop-card {
+            background-color: var(--color-light-grey);
+            padding: 2rem;
+            border-top: 4px solid var(--color-grey);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .prop-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+        }
+
+        /* Calculators Section */
+        .calculators-section {
+            background-color: var(--color-grey);
+            color: var(--color-white);
+            padding: 4rem 2rem;
+        }
+
+        .calculators-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .calculators-section > p {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #dcdcdc;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .tab-btn {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            border: 2px solid var(--color-black);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 8px;
+        }
+
+        .tab-btn.active {
+            background-color: var(--color-orange);
+            border-color: var(--color-orange);
+        }
+
+        .calc-container {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: none;
+            overflow: hidden;
+        }
+
+        .calc-container.active {
+            display: block;
+        }
+
+        /* Calculator UI Styles */
+        .calc-header {
+            background-color: var(--color-black);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .calc-body {
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+        body:not(.view-card) .calc-body {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.calc-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        table.calc-table th {
+            background-color: var(--color-light-grey);
+            color: var(--color-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        table.calc-table td {
+            padding: 1rem;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .input-group { display: flex; gap: 0.5rem; }
+
+        input.calc-input {
+            flex: 1;
+            min-width: 60px; /* Ensure 4 digits are visible */
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 16px; /* 16px prevents iOS zoom */
+        }
+
+        select.calc-select {
+            width: auto;
+            min-width: 65px;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 16px; /* 16px prevents iOS zoom */
+        }
+        
+        input.calc-input[type="number"] { text-align: right; }
+
+        .btn-add-row {
+            background-color: var(--color-grey);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        .btn-delete-row {
+            background-color: transparent;
+            color: #e74c3c;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .weight-output {
+            font-weight: bold;
+            text-align: right;
+            font-family: monospace;
+            font-size: 1.1rem;
+            background: transparent;
+            border: none;
+            width: 100%;
+            color: var(--color-black);
+        }
+
+        .calc-footer {
+            background-color: var(--color-light-grey);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .summary-val {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: monospace;
+            color: var(--color-orange);
+        }
+
+        .rfq-trigger {
+            background-color: var(--color-orange);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+        .rfq-trigger:hover { background-color: #e64a19; }
+
+        /* Products Section */
+        .products {
+            background-color: var(--color-white);
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .products > p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            color: var(--color-grey);
+        }
+
+        .product-card {
+            border: 2px solid var(--border-color);
+            margin-bottom: 2rem;
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .product-info {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+        }
+
+        .product-info ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-info ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .product-info ul li::before {
+            content: "■";
+            color: var(--color-orange);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--color-black);
+            background: transparent;
+            color: var(--color-black);
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+
+        /* About & Infrastructure */
+        .about {
+            background-color: var(--color-light-grey);
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-details {
+            background-color: var(--color-black);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .about-details h3 {
+            color: var(--color-orange);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-details p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-block {
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* View Mode Classes */
+        .view-card table.calc-table {
+            min-width: auto;
+        }
+
+        .view-card table.calc-table, 
+        .view-card table.calc-table thead, 
+        .view-card table.calc-table tbody, 
+        .view-card table.calc-table th, 
+        .view-card table.calc-table td, 
+        .view-card table.calc-table tr { 
+            display: block; 
+            width: 100%;
+        }
+
+        .view-card table.calc-table thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        .view-card table.calc-table tr {
+            position: relative;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--color-orange);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem 1rem 1rem 1rem;
+            background-color: var(--color-white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .view-card table.calc-table td {
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .view-card table.calc-table td:last-child {
+            border-bottom: none;
+        }
+
+        .view-card table.calc-table td:before {
+            position: relative;
+            left: 0;
+            width: 100%;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--color-grey);
+            content: attr(data-label);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .view-card .calc-input {
+            width: 100%;
+        }
+
+        .view-card .input-group {
+            flex-direction: row;
+            width: 100%;
+            gap: 0.5rem;
+        }
+        
+        .view-card .input-group .calc-input {
+            flex: 1;
+        }
+
+        .view-card .input-group .calc-select {
+            flex: 0 0 auto;
+            width: 80px;
+        }
+        
+        .view-card table.calc-table td[data-label="Action"] {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0;
+            width: auto;
+            border: none;
+            display: block;
+        }
+
+        .view-card table.calc-table td[data-label="Action"]:before {
+            content: none;
+        }
+        
+        .view-card table.calc-table td:first-child {
+            padding-right: 2rem;
+            padding-top: 0;
+        }
+        
+        .view-card .weight-output {
+            text-align: left;
+            font-size: 1.2rem;
+            color: var(--color-orange);
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid-3 { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; }
+            .product-card { flex-direction: column; }
+            
+            /* Unstick the contact bar to save vertical screen space */
+            .sticky-contact { 
+                position: relative; 
+                flex-direction: column; 
+                gap: 0.5rem; 
+                padding: 1rem; 
+                text-align: center; 
+            }
+            .contact-info { flex-direction: column; gap: 0.5rem; }
+            
+            header { 
+                margin-top: 0; /* Reset since strip is no longer fixed */
+                flex-direction: column; 
+                gap: 1rem; 
+                padding: 1rem;
+            }
+            nav { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            
+            .hero { padding: 3rem 1rem; }
+            .hero h1 { font-size: 2.2rem; }
+            
+            .calculators-section { padding: 2rem 1rem; }
+            .tabs { flex-direction: column; gap: 0.5rem; }
+            .tab-btn { width: 100%; }
+            
+            .calc-footer {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .about-details { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Contact Strip -->
+    <div class="sticky-contact">
+        <div class="contact-info">
+            <span>📞 +91-7999974706</span>
+            <span>✉️ bhagwatiudyog1@gmail.com</span>
+            <span>📍 Raipur, CG</span>
+        </div>
+        <a href="#contact" class="btn-quote">Request Bulk Quote</a>
+    </div>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="logo">Bhagwati Udyog</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#calculators">Calculators</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container" style="padding: 0;">
+            <h1>Engineered for Infrastructure.<br>Manufactured for Scale.</h1>
+            <p>Raipur’s premier manufacturer of high-precision Mild Steel Foundation Plates, Washers, and Industrial Components. We supply exact-tolerance MS products to railway contractors, scaffolding manufacturers, and national infrastructure projects.</p>
+            <a href="#calculators" class="btn-quote" style="font-size: 1.2rem; padding: 1rem 2rem;">Calculate Tonnage Requirements</a>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-prop">
+        <div class="container">
+            <h2>The Bhagwati Udyog Advantage</h2>
+            <div class="grid-3">
+                <div class="prop-card">
+                    <h3>High-Tonnage Capacity</h3>
+                    <p>Built to handle massive procurement orders. Our manufacturing infrastructure is scaled for wholesalers and large-scale industrial contractors.</p>
+                </div>
+                <div class="prop-card">
+                    <h3>Micrometer Precision</h3>
+                    <p>Strict adherence to dimensional tolerances. Whether it’s MS foundation plates or custom industrial washers, every batch meets rigorous structural requirements.</p>
+                </div>
+                <div class="prop-card">
+                    <h3>Strategic Logistics</h3>
+                    <p>Located in Raipur, Chhattisgarh—the heart of India’s steel belt—ensuring rapid raw material sourcing and optimized nationwide freight delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculators Section -->
+    <section id="calculators" class="calculators-section">
+        <h2>Industrial Steel Weight Calculation Engine</h2>
+        <p>Streamline your procurement process. Use our standard dimensional calculators to determine accurate tonnages for Mild Steel plates and washers before requesting a commercial quote.</p>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('plate', event)">MS Plate Calculator</button>
+            <button class="tab-btn" onclick="switchTab('washer', event)">MS Washer Calculator</button>
+            <button class="tab-btn" onclick="switchTab('shutter', event)">Shutter Side Plate</button>
+        </div>
+        
+
+
+        <div class="view-toggle" style="text-align: right; margin-bottom: 1rem;">
+            <label style="font-weight: 600; font-size: 0.9rem; color: var(--color-black); cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-white); padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid var(--border-color);">
+                <input type="checkbox" id="viewToggleCb" onchange="toggleViewMode(this)" checked style="cursor: pointer;"> 
+                Card View
+            </label>
+        </div>
+
+        <!-- Calculator 1: Plate -->
+        <div id="calc-plate" class="calc-container active">
+            <div class="calc-header">
+                <h3>MS Foundation Plate Weight Calculator</h3>
+            </div>
+            <div class="calc-body">
+                <table class="calc-table" id="plateTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%">Item Description</th>
+                            <th style="width: 18%">Length</th>
+                            <th style="width: 18%">Width</th>
+                            <th style="width: 10%">Thickness (mm)</th>
+                            <th style="width: 10%">Quantity</th>
+                            <th style="width: 16%; text-align: right;">Weight (kg)</th>
+                            <th style="width: 8%; text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="plateTableBody">
+                        <!-- JS injects rows here -->
+                    </tbody>
+                </table>
+                <button class="btn-add-row" onclick="addPlateRow()">+ Add Plate</button>
+            </div>
+            <div class="calc-footer">
+                <div>
+                    <span style="font-size:0.8rem; text-transform:uppercase;">Total Items</span><br>
+                    <span class="summary-val" id="plateTotalQty">0</span>
+                </div>
+                <div>
+                    <span style="font-size:0.8rem; text-transform:uppercase;">Total Weight</span><br>
+                    <span class="summary-val" id="plateGrandTotal">0.00 kg</span>
+                </div>
+            </div>
+            <a href="#contact" class="rfq-trigger" id="plateRfqBtn">Request Quote for 0.00 MT</a>
+        </div>
+
+        <!-- Calculator 2: Washer -->
+        <div id="calc-washer" class="calc-container">
+            <div class="calc-header">
+                <h3>MS Washer Weight Calculator</h3>
+            </div>
+            <div class="calc-body">
+                <table class="calc-table" id="washerTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%">Item Description</th>
+                            <th style="width: 18%">Outer Dia (OD)</th>
+                            <th style="width: 18%">Inner Dia (ID)</th>
+                            <th style="width: 10%">Thickness (mm)</th>
+                            <th style="width: 10%">Quantity</th>
+                            <th style="width: 16%; text-align: right;">Weight (kg)</th>
+                            <th style="width: 8%; text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="washerTableBody">
+                        <!-- JS injects rows here -->
+                    </tbody>
+                </table>
+                <button class="btn-add-row" onclick="addWasherRow()">+ Add Washer</button>
+            </div>
+            <div class="calc-footer">
+                <div>
+                    <span style="font-size:0.8rem; text-transform:uppercase;">Total Items</span><br>
+                    <span class="summary-val" id="washerTotalQty">0</span>
+                </div>
+                <div>
+                    <span style="font-size:0.8rem; text-transform:uppercase;">Total Weight</span><br>
+                    <span class="summary-val" id="washerGrandTotal">0.00 kg</span>
+                </div>
+            </div>
+            <a href="#contact" class="rfq-trigger" id="washerRfqBtn">Request Quote for 0.00 MT</a>
+        </div>
+
+        <!-- Calculator 3: Shutter Side Plate -->
+        <div id="calc-shutter" class="calc-container">
+            <div class="calc-header">
+                <h3>Shutter Side Plate Weight Calculator</h3>
+            </div>
+            <div class="calc-body">
+                <table class="calc-table" id="shutterTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%">Item Description</th>
+                            <th style="width: 25%">Standard Size</th>
+                            <th style="width: 15%">Thickness (mm)</th>
+                            <th style="width: 10%">Quantity</th>
+                            <th style="width: 17%; text-align: right;">Weight (kg)</th>
+                            <th style="width: 8%; text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shutterTableBody">
+                        <!-- JS injects rows here -->
+                    </tbody>
+                </table>
+                <button class="btn-add-row" onclick="addShutterRow()">+ Add Side Plate</button>
+            </div>
+            <div class="calc-footer">
+                <div>
+                    <span style="font-size:0.8rem; text-transform:uppercase;">Total Items</span><br>
+                    <span class="summary-val" id="shutterTotalQty">0</span>
+                </div>
+                <div>
+                    <span style="font-size:0.8rem; text-transform:uppercase;">Total Weight</span><br>
+                    <span class="summary-val" id="shutterGrandTotal">0.00 kg</span>
+                </div>
+            </div>
+            <a href="#contact" class="rfq-trigger" id="shutterRfqBtn">Request Quote for 0.00 MT</a>
+        </div>
+    </section>
+
+    <!-- Master Product Showcase -->
+    <section id="products" class="container products">
+        <h2>Industrial MS Product Catalog</h2>
+        <p>High-yield Mild Steel components manufactured for extreme load-bearing and structural stability. We fulfill high-volume, bulk manufacturing runs tailored directly to your engineering blueprints.</p>
+
+        <div class="product-card">
+            <div class="product-info">
+                <h3>MS Foundation Plates</h3>
+                <ul>
+                    <li><strong>Core Material:</strong> Premium Mild Steel (IS 2062 Grade)</li>
+                    <li><strong>Applications:</strong> Civil engineering foundations, heavy machinery base mounting, railway sleeper components, and structural column bases.</li>
+                    <li><strong>Capabilities:</strong> Precision cutting, sheared edges, custom perforation, and drilling available upon request. Thickness range scaled for heavy industrial apps.</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Request Quote</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <h3>Heavy-Duty MS Washers</h3>
+                <ul>
+                    <li><strong>Core Material:</strong> Premium Mild Steel</li>
+                    <li><strong>Applications:</strong> Scaffolding assembly, railway fastening systems, heavy automotive and industrial hardware.</li>
+                    <li><strong>Capabilities:</strong> High-volume punching and stamping. Consistent gauge thickness and precise inner/outer diameter ratios for load distribution.</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Request Quote</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <h3>Scaffolding Bottom Cups</h3>
+                <ul>
+                    <li><strong>Core Material:</strong> Premium Mild Steel</li>
+                    <li><strong>Applications:</strong> Crucial foundational component for modular scaffolding systems (Cuplock scaffolding), ensuring a rigid structural connection.</li>
+                    <li><strong>Capabilities:</strong> Deep-drawn manufacturing, precise cup dimensions for tight-locking mechanisms, and high durability for repeated industrial use.</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Request Quote</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <h3>Industrial Hardware & Shutter Fittings</h3>
+                <ul>
+                    <li><strong>Products Available:</strong> L Drop, Bend L Drop, Shutter Kunda (Small, Big, L Kunda, Paan Kunda), Shutter Side Plate, and Tikli.</li>
+                    <li><strong>Core Material:</strong> Premium Mild Steel</li>
+                    <li><strong>Applications:</strong> Commercial rolling shutters, heavy-duty industrial doors, and architectural hardware fittings.</li>
+                    <li><strong>Capabilities:</strong> High-tonnage stamping, anti-corrosion readiness, and standardized designs for bulk hardware wholesalers.</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us & Infrastructure -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>A Reliable Partner in Steel Manufacturing</h2>
+                    <p>Based in Raipur, Chhattisgarh, Bhagwati Udyog has grown alongside India's infrastructure development. We believe in building long-term, dependable partnerships with contractors, wholesalers, and engineers by consistently delivering quality mild steel components when they are needed most.</p>
+                    <p><strong>Our Commitment to Your Projects</strong><br>Our manufacturing facility is dedicated to meeting your bulk requirements efficiently. We work closely with scaffolding fabricators and industrial buyers to ensure a direct, reliable supply chain that keeps your projects on schedule.</p>
+                    <p><strong>Focus on Quality and Precision</strong><br>We understand that structural integrity starts at the component level. Our team takes pride in careful dimensional inspections and consistent quality control, ensuring that every plate, washer, and fitting meets your exact specifications.</p>
+                </div>
+                
+                <div class="about-details" id="contact">
+                    <h3>Ready for Procurement Integration</h3>
+                    <p>We operate on the scale your contracts demand. Our logistics network utilizes Raipur's strategic geographical advantage to ensure rapid dispatch and delivery across the country.</p>
+                    
+                    <div class="contact-block">
+                        <p><strong>Corporate Headquarters & Manufacturing Unit:</strong><br>
+                        Bhagwati Udyog<br>
+                        Plot No 740 J, Urla Industrial Complex,<br>
+                        Sector B, Metal Park Road,<br>
+                        Raipur (Chhattisgarh)</p>
+
+                        <p><strong>Direct Contact for RFQ & Vendor Integration:</strong><br>
+                        📞 Phone: +91-7999974706<br>
+                        ✉️ Email: bhagwatiudyog1@gmail.com</p>
+                        
+                        <p style="margin-top: 2rem;"><em>Send your technical drawings or Request for Quote (RFQ). Our engineering and sales team will respond with capacity timelines.</em></p>
+                        <a href="mailto:bhagwatiudyog1@gmail.com" class="btn-quote" style="display:inline-block; margin-top:1rem;">Initiate Vendor Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bhagwati Udyog. All Rights Reserved. | Industrial Precision Manufacturing</p>
+    </footer>
+
+    <!-- Scripts for Calculators -->
+    <script>
+        // Constants
+        const MS_DENSITY = 0.00000785; // kg/mm³
+        const INCH_TO_MM = 25.4;
+
+        // Tab Switching Logic
+        function switchTab(tabId, event) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.calc-container').forEach(calc => calc.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById('calc-' + tabId).classList.add('active');
+        }
+
+        // ---------- PLATE CALCULATOR LOGIC ----------
+        const plateBody = document.getElementById('plateTableBody');
+        
+        function addPlateRow() {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td data-label="Item Description"><input type="text" class="calc-input desc" placeholder="Plate desc..." oninput="calcPlate()"></td>
+                <td data-label="Length">
+                    <div class="input-group" style="width: 100%">
+                        <input type="number" min="0" step="any" class="calc-input len" placeholder="0" oninput="calcPlate()">
+                        <select class="calc-select l-unit" onchange="calcPlate()">
+                            <option value="mm">mm</option>
+                            <option value="inch">in</option>
+                        </select>
+                    </div>
+                </td>
+                <td data-label="Width">
+                    <div class="input-group" style="width: 100%">
+                        <input type="number" min="0" step="any" class="calc-input wid" placeholder="0" oninput="calcPlate()">
+                        <select class="calc-select w-unit" onchange="calcPlate()">
+                            <option value="mm">mm</option>
+                            <option value="inch">in</option>
+                        </select>
+                    </div>
+                </td>
+                <td data-label="Thickness (mm)"><input type="number" min="0" step="any" class="calc-input thk" placeholder="0" oninput="calcPlate()"></td>
+                <td data-label="Quantity"><input type="number" min="1" step="1" class="calc-input qty" value="1" oninput="calcPlate()"></td>
+                <td data-label="Weight (kg)"><input type="text" class="weight-output row-w" value="0.000" readonly></td>
+                <td data-label="Action" style="text-align: right;"><button class="btn-delete-row" onclick="deletePlateRow(this)">✕</button></td>
+            `;
+            plateBody.appendChild(tr);
+            updatePlateDeleteBtns();
+        }
+
+        function deletePlateRow(btn) {
+            if (plateBody.children.length > 1) {
+                btn.closest('tr').remove();
+                updatePlateDeleteBtns();
+                calcPlate();
+            }
+        }
+
+        function updatePlateDeleteBtns() {
+            const btns = plateBody.querySelectorAll('.btn-delete-row');
+            btns.forEach(btn => btn.disabled = btns.length === 1);
+        }
+
+        function calcPlate() {
+            let grandTotal = 0;
+            let totalQty = 0;
+
+            plateBody.querySelectorAll('tr').forEach(row => {
+                const l = parseFloat(row.querySelector('.len').value) || 0;
+                const lu = row.querySelector('.l-unit').value;
+                const w = parseFloat(row.querySelector('.wid').value) || 0;
+                const wu = row.querySelector('.w-unit').value;
+                const t = parseFloat(row.querySelector('.thk').value) || 0;
+                const q = parseInt(row.querySelector('.qty').value) || 0;
+
+                const lMm = lu === 'inch' ? l * INCH_TO_MM : l;
+                const wMm = wu === 'inch' ? w * INCH_TO_MM : w;
+
+                const weight = lMm * wMm * t * MS_DENSITY * q;
+                row.querySelector('.row-w').value = weight.toFixed(3);
+                
+                grandTotal += weight;
+                totalQty += q;
+            });
+
+            document.getElementById('plateTotalQty').innerText = totalQty;
+            document.getElementById('plateGrandTotal').innerText = grandTotal.toFixed(2) + ' kg';
+            
+            const mt = (grandTotal / 1000).toFixed(3);
+            document.getElementById('plateRfqBtn').innerText = `Request Quote for ${mt} MT`;
+        }
+
+        // ---------- WASHER CALCULATOR LOGIC ----------
+        const washerBody = document.getElementById('washerTableBody');
+        
+        function addWasherRow() {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td data-label="Item Description"><input type="text" class="calc-input desc" placeholder="Washer desc..." oninput="calcWasher()"></td>
+                <td data-label="Outer Dia (OD)">
+                    <div class="input-group" style="width: 100%">
+                        <input type="number" min="0" step="any" class="calc-input od" placeholder="0" oninput="calcWasher()">
+                        <select class="calc-select od-unit" onchange="calcWasher()">
+                            <option value="mm">mm</option>
+                            <option value="inch">in</option>
+                        </select>
+                    </div>
+                </td>
+                <td data-label="Inner Dia (ID)">
+                    <div class="input-group" style="width: 100%">
+                        <input type="number" min="0" step="any" class="calc-input id" placeholder="0" oninput="calcWasher()">
+                        <select class="calc-select id-unit" onchange="calcWasher()">
+                            <option value="mm">mm</option>
+                            <option value="inch">in</option>
+                        </select>
+                    </div>
+                </td>
+                <td data-label="Thickness (mm)"><input type="number" min="0" step="any" class="calc-input thk" placeholder="0" oninput="calcWasher()"></td>
+                <td data-label="Quantity"><input type="number" min="1" step="1" class="calc-input qty" value="1" oninput="calcWasher()"></td>
+                <td data-label="Weight (kg)"><input type="text" class="weight-output row-w" value="0.000" readonly></td>
+                <td data-label="Action" style="text-align: right;"><button class="btn-delete-row" onclick="deleteWasherRow(this)">✕</button></td>
+            `;
+            washerBody.appendChild(tr);
+            updateWasherDeleteBtns();
+        }
+
+        function deleteWasherRow(btn) {
+            if (washerBody.children.length > 1) {
+                btn.closest('tr').remove();
+                updateWasherDeleteBtns();
+                calcWasher();
+            }
+        }
+
+        function updateWasherDeleteBtns() {
+            const btns = washerBody.querySelectorAll('.btn-delete-row');
+            btns.forEach(btn => btn.disabled = btns.length === 1);
+        }
+
+        function calcWasher() {
+            let grandTotal = 0;
+            let totalQty = 0;
+
+            washerBody.querySelectorAll('tr').forEach(row => {
+                const od = parseFloat(row.querySelector('.od').value) || 0;
+                const ou = row.querySelector('.od-unit').value;
+                const id = parseFloat(row.querySelector('.id').value) || 0;
+                const iu = row.querySelector('.id-unit').value;
+                const t = parseFloat(row.querySelector('.thk').value) || 0;
+                const q = parseInt(row.querySelector('.qty').value) || 0;
+
+                const odMm = ou === 'inch' ? od * INCH_TO_MM : od;
+                const idMm = iu === 'inch' ? id * INCH_TO_MM : id;
+
+                let weight = 0;
+                if (odMm > idMm) {
+                    const area = (Math.PI / 4) * ((odMm * odMm) - (idMm * idMm));
+                    const volume = area * t;
+                    weight = volume * MS_DENSITY * q;
+                }
+
+                row.querySelector('.row-w').value = weight.toFixed(3);
+                
+                grandTotal += weight;
+                totalQty += q;
+            });
+
+            document.getElementById('washerTotalQty').innerText = totalQty;
+            document.getElementById('washerGrandTotal').innerText = grandTotal.toFixed(2) + ' kg';
+            
+            const mt = (grandTotal / 1000).toFixed(3);
+            document.getElementById('washerRfqBtn').innerText = `Request Quote for ${mt} MT`;
+        }
+
+        // ---------- SHUTTER SIDE PLATE LOGIC ----------
+        const shutterBody = document.getElementById('shutterTableBody');
+        
+        function addShutterRow() {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td data-label="Item Description"><input type="text" class="calc-input desc" placeholder="Side Plate desc..." oninput="calcShutter()"></td>
+                <td data-label="Standard Size">
+                    <select class="calc-select size-select" style="width: 100%" onchange="calcShutter()">
+                        <option value="13">13 x 13</option>
+                        <option value="16">16 x 16</option>
+                    </select>
+                </td>
+                <td data-label="Thickness (mm)"><input type="number" min="0" step="any" class="calc-input thk" placeholder="0" oninput="calcShutter()"></td>
+                <td data-label="Quantity"><input type="number" min="1" step="1" class="calc-input qty" value="1" oninput="calcShutter()"></td>
+                <td data-label="Weight (kg)"><input type="text" class="weight-output row-w" value="0.000" readonly></td>
+                <td data-label="Action" style="text-align: right;"><button class="btn-delete-row" onclick="deleteShutterRow(this)">✕</button></td>
+            `;
+            shutterBody.appendChild(tr);
+            updateShutterDeleteBtns();
+        }
+
+        function deleteShutterRow(btn) {
+            if (shutterBody.children.length > 1) {
+                btn.closest('tr').remove();
+                updateShutterDeleteBtns();
+                calcShutter();
+            }
+        }
+
+        function updateShutterDeleteBtns() {
+            const btns = shutterBody.querySelectorAll('.btn-delete-row');
+            btns.forEach(btn => btn.disabled = btns.length === 1);
+        }
+
+        function calcShutter() {
+            let grandTotal = 0;
+            let totalQty = 0;
+
+            shutterBody.querySelectorAll('tr').forEach(row => {
+                const sizeVal = row.querySelector('.size-select').value;
+                const t = parseFloat(row.querySelector('.thk').value) || 0;
+                const q = parseInt(row.querySelector('.qty').value) || 0;
+
+                // Determine mm cutting dimensions based on standard size
+                let lMm = 0, wMm = 0;
+                if (sizeVal === "13") {
+                    lMm = 325;
+                    wMm = 400;
+                } else if (sizeVal === "16") {
+                    lMm = 475;
+                    wMm = 400;
+                }
+
+                // Volume (mm³) * Density (kg/mm³)
+                const weight = lMm * wMm * t * MS_DENSITY * q;
+                row.querySelector('.row-w').value = weight.toFixed(3);
+                
+                grandTotal += weight;
+                totalQty += q;
+            });
+
+            document.getElementById('shutterTotalQty').innerText = totalQty;
+            document.getElementById('shutterGrandTotal').innerText = grandTotal.toFixed(2) + ' kg';
+            
+            const mt = (grandTotal / 1000).toFixed(3);
+            document.getElementById('shutterRfqBtn').innerText = `Request Quote for ${mt} MT`;
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            addPlateRow();
+            addWasherRow();
+            addShutterRow();
+        });
+    </script>
+
+<script>
+    function toggleViewMode(cb) {
+        if (cb.checked) {
+            document.body.classList.add('view-card');
+        } else {
+            document.body.classList.remove('view-card');
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Automatically default to card view on mobile devices
+        if (window.innerWidth <= 900) {
+            document.body.classList.add('view-card');
+            const toggleCb = document.getElementById('viewToggleCb');
+            if(toggleCb) toggleCb.checked = true;
+        } else {
+            // Default to list view on desktop
+            document.body.classList.remove('view-card');
+            const toggleCb = document.getElementById('viewToggleCb');
+            if(toggleCb) toggleCb.checked = false;
+        }
+    });
+</script>
+
+
+</body>
+</html>
